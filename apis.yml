@@ -1,0 +1,126 @@
+name: QlikView
+description: QlikView is a business intelligence and data visualization platform that enables users to create guided analytics applications and dashboards for data discovery.
+image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
+tags:
+- business intelligence
+- data visualization
+- analytics
+- dashboards
+- data discovery
+created: '2024'
+modified: '2024'
+url: https://www.qlik.com/us/products/qlikview
+specificationVersion: '0.18'
+apis:
+- name: QlikView Server API
+  description: Server-side API for managing QlikView Server operations, documents, and sessions
+  image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
+  humanURL: https://help.qlik.com/en-US/qlikview/
+  baseURL: http://qlikview-server:4799/QMS/Service
+  tags:
+  - server management
+  - documents
+  - sessions
+  - administration
+  properties:
+  - type: Documentation
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Server/Content/QV_Server/sv-reference-QMS-API.htm
+  - type: OpenAPI
+    url: https://help.qlik.com/en-US/qlikview-developer/APIs/
+  contact:
+  - FN: Qlik Support
+    email: support@qlik.com
+    url: https://community.qlik.com/
+- name: QlikView Management API (QMS API)
+  description: SOAP-based API for QlikView management and administration tasks
+  image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
+  humanURL: https://help.qlik.com/en-US/qlikview/
+  baseURL: http://qlikview-server:4799/QMS/Service
+  tags:
+  - management
+  - administration
+  - SOAP
+  - configuration
+  properties:
+  - type: Documentation
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Server/Content/QV_Server/sv-qms-api-interface.htm
+  - type: WSDL
+    url: http://qlikview-server:4799/QMS/Service?wsdl
+  - type: SDK
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Content/QV_QlikViewSDK/QV_SDK_Introduction.htm
+- name: QlikView AccessPoint API
+  description: Web-based API for QlikView AccessPoint portal functionality
+  image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
+  humanURL: https://help.qlik.com/en-US/qlikview/
+  baseURL: http://qlikview-server/QvAJAXZfc/
+  tags:
+  - web portal
+  - user access
+  - AJAX
+  - frontend
+  properties:
+  - type: Documentation
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/AJAX/Content/QV_AJAX/ajax-api-introduction.htm
+  - type: JavaScript API
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/AJAX/Content/QV_AJAX/qva-getdocumentlist.htm
+- name: QlikView Workbench API
+  description: API for integrating QlikView objects into web applications and portals
+  image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
+  humanURL: https://help.qlik.com/en-US/qlikview/
+  baseURL: http://qlikview-server/QvAJAXZfc/
+  tags:
+  - workbench
+  - web integration
+  - embedding
+  - .NET
+  properties:
+  - type: Documentation
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Workbench/Content/QV_Workbench/workbench-introduction.htm
+  - type: ASP.NET Controls
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Workbench/Content/QV_Workbench/server-side-controls.htm
+- name: QlikView Plugin API
+  description: COM-based API for creating custom objects and extensions in QlikView
+  image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
+  humanURL: https://help.qlik.com/en-US/qlikview/
+  baseURL: local
+  tags:
+  - plugins
+  - extensions
+  - COM
+  - custom objects
+  properties:
+  - type: Documentation
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/PluginAPI/Content/QV_PluginAPI/plugin-api-introduction.htm
+  - type: SDK
+    url: https://community.qlik.com/t5/Developers/ct-p/qlik-developers
+- name: QlikView OCX API (Automation API)
+  description: ActiveX/COM API for automating QlikView Desktop operations
+  image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
+  humanURL: https://help.qlik.com/en-US/qlikview/
+  baseURL: local
+  tags:
+  - automation
+  - COM
+  - ActiveX
+  - desktop
+  - scripting
+  properties:
+  - type: Documentation
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/OCX/Content/QV_OCX/ocx-introduction.htm
+  - type: Reference Guide
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/OCX/Content/QV_OCX/ocx-api-reference.htm
+common:
+- type: Developer Portal
+  url: https://help.qlik.com/en-US/qlikview-developer/
+- type: Community
+  url: https://community.qlik.com/
+- type: Support
+  url: https://support.qlik.com/
+- type: Training
+  url: https://www.qlik.com/us/services/training
+- type: Pricing
+  url: https://www.qlik.com/us/pricing
+maintainers:
+- FN: Qlik
+  email: info@qlik.com
+  url: https://www.qlik.com/
