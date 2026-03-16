@@ -1,16 +1,18 @@
+aid: qlikview
 name: QlikView
 description: QlikView is a business intelligence and data visualization platform that enables users to create guided analytics applications and dashboards for data discovery.
+type: Index
 image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
+url: https://raw.githubusercontent.com/api-evangelist/qlikview/refs/heads/main/apis.yml
 tags:
 - business intelligence
 - data visualization
 - analytics
 - dashboards
 - data discovery
-created: '2024'
-modified: '2026-03-03'
-url: https://www.qlik.com/us/products/qlikview
-specificationVersion: '0.18'
+created: '2024-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis:
 - name: QlikView Server API
   description: Server-side API for managing QlikView Server operations, documents, and sessions
@@ -255,6 +257,5 @@ common:
 - type: QlikDeveloperPortal
   url: https://qlik.dev/
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-  url: https://apievangelist.com/
+  - FN: Kin Lane
+    email: kin@apievangelist.com
