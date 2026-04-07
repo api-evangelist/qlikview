@@ -1,18 +1,15 @@
 aid: qlikview
 name: QlikView
-description: QlikView is a business intelligence and data visualization platform
-  that enables users to create guided analytics applications and dashboards for 
-  data discovery.
+description: QlikView is a business intelligence and data visualization platform that enables users to create guided analytics applications and dashboards for data discovery.
 type: Index
 image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
-url: 
-  https://raw.githubusercontent.com/api-evangelist/qlikview/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/qlikview/refs/heads/main/apis.yml
 tags:
-  - business intelligence
-  - data visualization
-  - analytics
-  - dashboards
-  - data discovery
+  - Analytics
+  - Business Intelligence
+  - Dashboards
+  - Data Discovery
+  - Data Visualization
 created: '2024-01-01'
 modified: '2026-03-16'
 specificationVersion: '0.19'
@@ -24,19 +21,17 @@ apis:
     humanURL: https://help.qlik.com/en-US/qlikview/
     baseURL: http://qlikview-server:4799/QMS/Service
     tags:
-      - server management
-      - documents
-      - sessions
-      - administration
+      - Administration
+      - Documents
+      - Server Management
+      - Sessions
     properties:
       - type: Documentation
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Server/Content/QV_Server/sv-reference-QMS-API.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Server/Content/QV_Server/sv-reference-QMS-API.htm
       - type: OpenAPI
         url: https://help.qlik.com/en-US/qlikview-developer/APIs/
       - type: GettingStartedGuide
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -48,25 +43,21 @@ apis:
     humanURL: https://help.qlik.com/en-US/qlikview/
     baseURL: http://qlikview-server:4799/QMS/Service
     tags:
-      - management
-      - administration
+      - Administration
+      - Configuration
+      - Management
       - SOAP
-      - configuration
     properties:
       - type: Documentation
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Server/Content/QV_Server/sv-qms-api-interface.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Server/Content/QV_Server/sv-qms-api-interface.htm
       - type: WSDL
         url: http://qlikview-server:4799/QMS/Service?wsdl
       - type: SDK
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/November2023/Content/QV_QlikViewSDK/QV_SDK_Introduction.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Content/QV_QlikViewSDK/QV_SDK_Introduction.htm
       - type: APIReference
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
       - type: InterfaceReference
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/PIX.Services.V12.IQMS.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/PIX.Services.V12.IQMS.htm
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -78,20 +69,17 @@ apis:
     humanURL: https://help.qlik.com/en-US/qlikview/
     baseURL: http://qlikview-server/QvAJAXZfc/
     tags:
-      - web portal
-      - user access
       - AJAX
-      - frontend
+      - Frontend
+      - User Access
+      - Web Portal
     properties:
       - type: Documentation
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/AJAX/Content/QV_AJAX/ajax-api-introduction.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/AJAX/Content/QV_AJAX/ajax-api-introduction.htm
       - type: JavaScript API
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/AJAX/Content/QV_AJAX/qva-getdocumentlist.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/AJAX/Content/QV_AJAX/qva-getdocumentlist.htm
       - type: JavaScriptLibrary
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/apis/js%20API/
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/apis/js%20API/
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -103,17 +91,15 @@ apis:
     humanURL: https://help.qlik.com/en-US/qlikview/
     baseURL: http://qlikview-server/QvAJAXZfc/
     tags:
-      - workbench
-      - web integration
-      - embedding
       - .NET
+      - Embedding
+      - Web Integration
+      - Workbench
     properties:
       - type: Documentation
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Workbench/Content/QV_Workbench/workbench-introduction.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Workbench/Content/QV_Workbench/workbench-introduction.htm
       - type: ASP.NET Controls
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Workbench/Content/QV_Workbench/server-side-controls.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Workbench/Content/QV_Workbench/server-side-controls.htm
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -125,14 +111,13 @@ apis:
     humanURL: https://help.qlik.com/en-US/qlikview/
     baseURL: local
     tags:
-      - plugins
-      - extensions
       - COM
-      - custom objects
+      - Custom Objects
+      - Extensions
+      - Plugins
     properties:
       - type: Documentation
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/PluginAPI/Content/QV_PluginAPI/plugin-api-introduction.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/PluginAPI/Content/QV_PluginAPI/plugin-api-introduction.htm
       - type: SDK
         url: https://community.qlik.com/t5/Developers/ct-p/qlik-developers
     contact:
@@ -146,18 +131,16 @@ apis:
     humanURL: https://help.qlik.com/en-US/qlikview/
     baseURL: local
     tags:
-      - automation
-      - COM
       - ActiveX
-      - desktop
-      - scripting
+      - Automation
+      - COM
+      - Desktop
+      - Scripting
     properties:
       - type: Documentation
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/OCX/Content/QV_OCX/ocx-introduction.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/OCX/Content/QV_OCX/ocx-introduction.htm
       - type: Reference Guide
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/OCX/Content/QV_OCX/ocx-api-reference.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/OCX/Content/QV_OCX/ocx-api-reference.htm
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -168,22 +151,19 @@ apis:
       for integrating external data sources into QlikView, using a high-performance
       file and stream format for data input.
     image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
-    humanURL: 
-      https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+    humanURL: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
     baseURL: local
     tags:
-      - data integration
-      - custom connectors
+      - Custom Connectors
+      - Data Integration
+      - Data Sources
       - QVX
       - SDK
-      - data sources
     properties:
       - type: Documentation
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QVXSDKAPI/Content/QV_QVXSDKAPI/Getting-started.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QVXSDKAPI/Content/QV_QVXSDKAPI/Getting-started.htm
       - type: APIReference
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QVXSDKAPI/Content/QV_QVXSDKAPI/QlikView%20QVX%20File%20Format/command-pipe.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QVXSDKAPI/Content/QV_QVXSDKAPI/QlikView%20QVX%20File%20Format/command-pipe.htm
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -194,22 +174,19 @@ apis:
       for developing custom extension objects that extend QlikView visualization
       capabilities.
     image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
-    humanURL: 
-      https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+    humanURL: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
     baseURL: http://qlikview-server/QvAJAXZfc/
     tags:
-      - JavaScript
-      - extensions
-      - visualization
-      - web development
       - AJAX
+      - Extensions
+      - JavaScript
+      - Visualization
+      - Web Development
     properties:
       - type: Documentation
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/apis/js%20API/
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/apis/js%20API/
       - type: GettingStartedGuide
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -220,22 +197,19 @@ apis:
       sign-on access to QlikView Server, allowing third-party systems to request
       authentication tokens on behalf of users.
     image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
-    humanURL: 
-      https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+    humanURL: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
     baseURL: http://qlikview-server/QvAJAXZfc/
     tags:
-      - authentication
-      - security
-      - single sign-on
-      - tickets
-      - custom ticket exchange
+      - Authentication
+      - Custom Ticket Exchange
+      - Security
+      - Single Sign-On
+      - Tickets
     properties:
       - type: Documentation
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
       - type: Support
-        url: 
-          https://community.qlik.com/t5/Official-Support-Articles/Customized-Authentication-in-QlikView/ta-p/1710763
+        url: https://community.qlik.com/t5/Official-Support-Articles/Customized-Authentication-in-QlikView/ta-p/1710763
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -246,22 +220,19 @@ apis:
       access to document distribution, task management, and scheduled reload
       operations including External Document Exchange (EDX) triggers.
     image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
-    humanURL: 
-      https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/PIX.Services.IQDS.htm
+    humanURL: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/PIX.Services.IQDS.htm
     baseURL: http://qlikview-server:4799/QMS/Service
     tags:
-      - distribution
-      - task management
-      - scheduling
+      - Distribution
+      - Document Reload
       - EDX
-      - document reload
+      - Scheduling
+      - Task Management
     properties:
       - type: Documentation
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/PIX.Services.IQDS.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/PIX.Services.IQDS.htm
       - type: APIReference
-        url: 
-          https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -270,11 +241,9 @@ common:
   - type: Developer Portal
     url: https://help.qlik.com/en-US/qlikview-developer/
   - type: APIsAndSDKs
-    url: 
-      https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+    url: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
   - type: QMSAPIReference
-    url: 
-      https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+    url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
   - type: Community
     url: https://community.qlik.com/
   - type: Support
@@ -286,11 +255,9 @@ common:
   - type: ReleaseNotes
     url: https://community.qlik.com/t5/Release-Notes/tkb-p/ReleaseNotes
   - type: WhatsNew
-    url: 
-      https://help.qlik.com/en-US/qlikview/September2025/Content/QV_HelpSites/Whats_New_in_QlikView.htm
+    url: https://help.qlik.com/en-US/qlikview/September2025/Content/QV_HelpSites/Whats_New_in_QlikView.htm
   - type: ProductLifecycle
-    url: 
-      https://community.qlik.com/t5/Product-Lifecycle/QlikView-Product-Lifecycle/ta-p/1826339
+    url: https://community.qlik.com/t5/Product-Lifecycle/QlikView-Product-Lifecycle/ta-p/1826339
   - type: GitHub
     url: https://github.com/qlik-oss
   - type: QlikDeveloperPortal
