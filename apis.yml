@@ -296,6 +296,11 @@ common:
         description: Integrate with Salesforce CRM data for sales analytics and reporting.
       - name: Active Directory
         description: Authenticate users and manage access through Active Directory integration.
+  - type: Integrations
+    url: https://help.qlik.com/en-US/connectors/Content/Connectors_Home/Home.htm
+integrations:
+  - name: Qlik Help home
+  - name: Close feedback widget
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
