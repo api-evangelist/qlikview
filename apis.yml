@@ -52,7 +52,7 @@ apis:
         url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Server/Content/QV_Server/sv-qms-api-interface.htm
       - type: WSDL
         url: http://qlikview-server:4799/QMS/Service?wsdl
-      - type: SDK
+      - type: SDKs
         url: https://help.qlik.com/en-US/qlikview-developer/November2023/Content/QV_QlikViewSDK/QV_SDK_Introduction.htm
       - type: APIReference
         url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
@@ -118,7 +118,7 @@ apis:
     properties:
       - type: Documentation
         url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/PluginAPI/Content/QV_PluginAPI/plugin-api-introduction.htm
-      - type: SDK
+      - type: SDKs
         url: https://community.qlik.com/t5/Developers/ct-p/qlik-developers
     contact:
       - FN: Qlik Support
