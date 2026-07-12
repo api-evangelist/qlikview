@@ -238,6 +238,10 @@ apis:
         email: support@qlik.com
         url: https://community.qlik.com/
 common:
+  - type: TrustCenter
+    url: security/qlikview-trust-center.yml
+  - type: DomainSecurity
+    url: security/qlikview-domain-security.yml
   - type: Portal
     url: https://help.qlik.com/en-US/qlikview-developer/
   - type: APIReference
