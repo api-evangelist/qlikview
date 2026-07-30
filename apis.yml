@@ -2,6 +2,18 @@ aid: qlikview
 name: QlikView
 description: QlikView is a business intelligence and data visualization platform that enables users to create guided analytics applications and dashboards for data discovery.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 image: https://www.qlik.com/us/-/media/images/qlik/global/qlik-logo-2x.png
 url: https://raw.githubusercontent.com/api-evangelist/qlikview/refs/heads/main/apis.yml
 tags:
