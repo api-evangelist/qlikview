@@ -1,20 +1,75 @@
-generated: '2026-07-11'
+generated: '2026-08-29'
 method: searched
 probe: true
-source: https://security.qlik.com/
-url: https://security.qlik.com/
+source: https://www.qlik.com/us/trust
+url: https://www.qlik.com/us/trust
+provider: QlikView
+providerId: qlikview
+description: >-
+  Qlik's public trust and security page, the vendor trust center covering QlikView. Upgraded
+  2026-08-29 from the 2026-07-11 pass, which pointed only at https://security.qlik.com/ and
+  carried a six-item certification list. security.qlik.com is the Qlik Security Trust Center
+  where "Qlik security artifacts are available to customers" - it returned HTTP 403 to an
+  anonymous browser-UA request on 2026-08-29, i.e. it is customer-gated. The public,
+  anonymously readable trust page is https://www.qlik.com/us/trust (HTTP 200) and it names a
+  much longer certification list, recorded below.
+scope_note: >-
+  These are Qlik company and Qlik Cloud certifications. QlikView is customer-installed
+  software running on the customer's own Windows servers, so certifications that certify a
+  HOSTED environment (FedRAMP, GovRAMP, TX-RAMP, DISA IL2/IL4, CJIS) attach to Qlik Cloud
+  Government, not to a QlikView deployment. The boundary is stated rather than blurred.
 certifications:
-- SOC 2
-- ISO 27001
-- ISO 27017
-- ISO 27018
-- HIPAA
-- FedRAMP
+  - ISO/IEC 27001:2022
+  - ISO/IEC 27017:2015
+  - ISO/IEC 27018:2019
+  - ISO/IEC 42001:2023
+  - SOC 1
+  - SOC 2 + HITRUST CSF
+  - SOC 3
+  - HIPAA
+  - TISAX
+  - IRAP
+  - Cyber Essentials
+  - Cyber Essentials Plus
+  - UK G-Cloud v14
+  - CASA Tier 3
+  - C5 (German BSI)
+government_only_certifications:
+  note: Qlik Cloud Government scope. Not applicable to an on-premises QlikView install.
+  items:
+    - FedRAMP
+    - GovRAMP
+    - TX-RAMP Level 2
+    - ITAR
+    - DISA Impact Level 2
+    - DISA Impact Level 4
+    - CJIS
+contacts:
+  security_email: security@qlik.com
+  vulnerability_disclosure: https://hackerone.com/qlik
+gated_portal:
+  url: https://security.qlik.com/
+  status: 403
+  note: >-
+    Qlik Security Trust Center. Security artifacts (SOC reports, pen-test summaries,
+    questionnaires) are made available to customers here; anonymous access is refused, so
+    the artifact inventory behind it could not be enumerated.
 evidence:
-- source: https://security.qlik.com/
-  keywords:
-  - soc 2
-  - iso/iec 27001
-  - hipaa
-  - fedramp
-  - trust center
+  - source: https://www.qlik.com/us/trust
+    status: 200
+    fetched: '2026-08-29'
+    keywords:
+      - iso 27001
+      - iso 42001
+      - soc 2
+      - hitrust
+      - hipaa
+      - fedramp
+      - tisax
+      - c5
+  - source: https://security.qlik.com/
+    status: 403
+    fetched: '2026-08-29'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,163 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+  and https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/Ticket-API.htm
+provider: QlikView
+providerId: qlikview
+description: >-
+  Cross-cutting runtime semantics for the QlikView API surface. QlikView predates every
+  convention this artifact usually records - it is a SOAP/WSDL and COM product installed on
+  the customer's own Windows servers - so most fields below are honest "not documented"
+  rather than a value. That absence IS the finding: an agent calling this surface gets no
+  idempotency key, no request id, no rate-limit header and no problem+json envelope.
+interface_styles:
+  - style: SOAP 1.x over HTTP/HTTPS (WSDL 1.1)
+    surfaces:
+      - QlikView Management API (QMS API)
+      - QlikView Server API
+      - QlikView Distribution Service API (IQDS)
+  - style: XML over HTTP (ASPX endpoints)
+    surfaces:
+      - QlikView Authentication API (Ticket API)
+      - QlikView AccessPoint API
+  - style: In-browser JavaScript (Qva object)
+    surfaces:
+      - QlikView JavaScript API
+  - style: COM / ActiveX / .NET in-process
+    surfaces:
+      - QlikView Plugin API
+      - QlikView OCX API (Automation API)
+      - QlikView QVX SDK API
+      - QlikView Workbench API
+auth_style:
+  summary: >-
+    X-Service-Key header (time-limited, obtained from GetTimeLimitedServiceKey) for QMS;
+    Custom Ticket Exchange tickets for AccessPoint/Workbench; Windows integrated identity
+    everywhere else. No OAuth, no scopes.
+  detail: authentication/qlikview-authentication.yml
+idempotency:
+  supported: false
+  status: not-documented
+  header: null
+  scope: null
+  retention: null
+  note: >-
+    No idempotency key, no request-deduplication semantics and no safe-retry guidance appear
+    anywhere in the QlikView developer documentation. Write operations on the QMS API
+    (task creation, document distribution, EDX triggers) are therefore not safely
+    retryable by a client that cannot see whether the first call landed. NO Idempotency
+    pointer is emitted for this repo, because emitting one would assert support QlikView
+    does not have.
+pagination:
+  supported: false
+  status: not-documented
+  style: null
+  note: >-
+    The QMS API returns whole collections from operations such as document and task
+    enumeration; no page/cursor/limit parameter is documented. Result-set size is bounded by
+    the size of the customer's own deployment.
+field_expansion:
+  supported: false
+  note: >-
+    Not applicable to a SOAP contract - the WSDL fixes the shape of each response, and there
+    is no sparse-fieldset or expand parameter.
+metadata:
+  supported: false
+  note: No user-defined metadata/custom-field surface is documented on the API objects.
+request_id_tracing:
+  supported: false
+  header: null
+  note: >-
+    No correlation-id or request-id header is documented on any QlikView surface. Tracing is
+    done from the QlikView Server and Distribution Service log files on the customer's own
+    machine, not from a response header.
+versioning:
+  style: additive-interface
+  summary: >-
+    The QMS contract versions by adding a new interface rather than by changing an existing
+    one: IQMS, IQMS2 ... IQMS9, in namespaces PIX.Services.V12 through PIX.Services.V12.Api9.
+    Qlik states the interfaces are cumulative, so an existing client keeps working across a
+    QlikView upgrade. There is no URL version segment, no version header and no media-type
+    version.
+  detail: lifecycle/qlikview-lifecycle.yml
+error_envelope:
+  format: soap-fault
+  problem_json: false
+  rfc9457: false
+  note: >-
+    Errors surface as SOAP faults on the QMS API and as HTTP/ASPX errors on the ticket
+    endpoints. No RFC 9457 application/problem+json envelope exists. A machine-readable
+    error catalogue could not be built for this repo: there is no OpenAPI to derive 4xx/5xx
+    responses from and no published error-code reference on help.qlik.com, so
+    errors/qlikview-problem-types.yml is deliberately NOT written rather than invented.
+rate_limit_signaling:
+  supported: false
+  headers: []
+  status_on_exhaustion: null
+  note: >-
+    No rate limits are published and no RateLimit-*/X-RateLimit-*/Retry-After headers are
+    documented. See rate-limits/qlikview-rate-limits.yml - the honest count is zero, because
+    the API runs on hardware the customer owns and Qlik does not meter it.
+reversibility:
+  status: documented
+  grade_basis: >-
+    A reversal path exists and is named in the documentation for the main write surfaces,
+    but NO time window is published for any of them, so this grades as documented rather
+    than verified. No window is asserted below, because inventing one on a task-scheduling
+    and document-distribution surface could cost a user real work.
+  write_surfaces:
+    - surface: QMS API - task management
+      writes: Create, edit, enable/disable and delete distribution and reload tasks.
+      reversal: >-
+        Tasks are mutable configuration objects: a created task can be deleted, and an
+        enabled task can be disabled, through the same QMS interfaces (IQMS...IQMS9) and
+        through the QlikView Management Console. Reversal is a further write, not an undo
+        operation, and a deleted task is not restorable through the API.
+      operation_ids: null
+      operation_ids_note: >-
+        Cannot be listed. The QMS operation names live in a WSDL served only from the
+        customer's own server (http://<server>:4799/QMS/Service?wsdl); no public spec exists
+        to quote operationIds from, and inventing them was not an option.
+      window: null
+      window_source: null
+    - surface: QMS API / IQDS - EDX task triggering
+      writes: External Document Exchange triggers that start a document reload.
+      reversal: >-
+        A running task can be aborted from the Distribution Service, but the reload it
+        already performed is not undone; the previous document version is recoverable only
+        from whatever QlikView document versioning or file backup the customer configured.
+      window: null
+      window_source: null
+    - surface: Ticket API - session issuance
+      writes: Issues a session ticket for a user.
+      reversal: >-
+        Sessions are terminated by POSTing to /Accesspoint.aspx (logout), and tickets are
+        short-lived by design.
+      window: null
+      window_source: >-
+        Ticket lifetime is described as time-limited on
+        https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/Ticket-API.htm
+        but no duration is stated, so none is recorded.
+  dry_run_mode:
+    supported: false
+    note: No preview/validate/dry-run mode is documented on any QlikView write operation.
+cross_references:
+  authentication: authentication/qlikview-authentication.yml
+  lifecycle: lifecycle/qlikview-lifecycle.yml
+  rate_limits: rate-limits/qlikview-rate-limits.yml
+  changelog: changelog/qlikview-changelog.yml
+  conformance: conformance/qlikview-conformance.yml
+evidence:
+  - url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/Ticket-API.htm
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/PIX.Services.IQDS.htm
+    status: 200
+    fetched: '2026-08-29'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

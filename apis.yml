@@ -1,6 +1,15 @@
 aid: qlikview
 name: QlikView
-description: QlikView is a business intelligence and data visualization platform that enables users to create guided analytics applications and dashboards for data discovery.
+description: >-
+  QlikView is Qlik's guided-analytics platform for business intelligence and data
+  visualization, installed and run on the customer's own Windows servers rather than
+  consumed as a hosted service. Its patented associative in-memory engine lets users
+  explore relationships across data sets, and its developer surface is a set of on-premises
+  APIs and SDKs: the SOAP-based QlikView Management Service (QMS) API for administration,
+  task and document distribution, the Ticket API for custom single sign-on, the AJAX/Qva
+  JavaScript API and Workbench ASP.NET controls for embedding, and COM/OCX plus the QVX SDK
+  for automation and custom data connectors. Still shipping - 12.100 (September 2025) is
+  supported to 2027-09-30.
 type: Index
 deliveryModel:
   model: saas
@@ -33,8 +42,13 @@ tags:
   - Dashboards
   - Data Discovery
   - Data Visualization
+  - Embedded Analytics
+  - On Premises
+  - SOAP
+  - Guided Analytics
+  - Reporting
 created: '2024-01-01'
-modified: '2026-04-18'
+modified: '2026-08-29'
 specificationVersion: '0.23'
 apis:
   - name: QlikView Server API
@@ -51,8 +65,6 @@ apis:
     properties:
       - type: Documentation
         url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Server/Content/QV_Server/sv-reference-QMS-API.htm
-      - type: OpenAPI
-        url: https://help.qlik.com/en-US/qlikview-developer/APIs/
       - type: GettingStartedGuide
         url: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
     contact:
@@ -140,9 +152,9 @@ apis:
       - Plugins
     properties:
       - type: Documentation
-        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/PluginAPI/Content/QV_PluginAPI/plugin-api-introduction.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/PluginAPI/Content/QV_PluginAPI/plugin-api-introduction.htm
       - type: SDKs
-        url: https://community.qlik.com/t5/Developers/ct-p/qlik-developers
+        url: packages/qlikview-packages.yml
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -161,9 +173,9 @@ apis:
       - Scripting
     properties:
       - type: Documentation
-        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/OCX/Content/QV_OCX/ocx-introduction.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/OCX/Content/QV_OCX/Introduction.htm
       - type: Reference Guide
-        url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/OCX/Content/QV_OCX/ocx-api-reference.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/OCX/Content/QV_OCX/ocx-api-reference.htm
     contact:
       - FN: Qlik Support
         email: support@qlik.com
@@ -184,7 +196,7 @@ apis:
       - SDK
     properties:
       - type: Documentation
-        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QVXSDKAPI/Content/QV_QVXSDKAPI/Getting-started.htm
+        url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QVXSDKAPI/Content/QV_QVXSDKAPI/Introduction.htm
       - type: APIReference
         url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QVXSDKAPI/Content/QV_QVXSDKAPI/QlikView%20QVX%20File%20Format/command-pipe.htm
     contact:
@@ -281,6 +293,44 @@ common:
     url: https://github.com/qlik-oss
   - type: DeveloperPortal
     url: https://qlik.dev/
+  - type: Website
+    url: https://www.qlik.com/us/products/qlikview
+  - type: Documentation
+    url: https://help.qlik.com/en-US/qlikview/September2025/Content/QV_HelpSites/Home.htm
+  - type: GettingStarted
+    url: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+  - type: Blog
+    url: https://www.qlik.com/us/blog
+  - type: TermsOfService
+    url: https://www.qlik.com/us/legal/terms-of-use
+  - type: PrivacyPolicy
+    url: https://www.qlik.com/us/legal/privacy-and-cookie-notice
+  - type: Compliance
+    url: https://www.qlik.com/us/trust
+  - type: Security
+    url: security/qlikview-vulnerability-disclosure.yml
+  - type: VulnerabilityDisclosure
+    url: security/qlikview-vulnerability-disclosure.yml
+  - type: Packages
+    url: packages/qlikview-packages.yml
+  - type: SDKs
+    url: packages/qlikview-packages.yml
+  - type: Authentication
+    url: authentication/qlikview-authentication.yml
+  - type: Conventions
+    url: conventions/qlikview-conventions.yml
+  - type: Conformance
+    url: conformance/qlikview-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/qlikview-lifecycle.yml
+  - type: Deprecation
+    url: lifecycle/qlikview-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/qlikview-changelog.yml
+  - type: Components
+    url: components/qlikview-components.yml
+  - type: LLMsTxt
+    url: llms/qlikview-llms.txt
   - type: Features
     data:
       - name: Associative Data Model
@@ -325,9 +375,13 @@ common:
         description: Authenticate users and manage access through Active Directory integration.
   - type: Integrations
     url: https://help.qlik.com/en-US/connectors/Content/Connectors_Home/Home.htm
-integrations:
-  - name: Qlik Help home
-  - name: Close feedback widget
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-29'
+  status: enriched
+  artifacts_added: 11
+  pass: local-v1
+x-parent: qlik
+x-relationship: product

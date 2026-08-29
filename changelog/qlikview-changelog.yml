@@ -1,0 +1,99 @@
+generated: '2026-08-29'
+method: searched
+source: https://github.com/qlik-download/qlikview/releases
+provider: QlikView
+providerId: qlikview
+description: >-
+  Dated release history for QlikView. Qlik publishes QlikView builds as tagged releases on
+  the first-party GitHub repository github.com/qlik-download/qlikview ("Product Collection
+  repository for QlikView") and narrates them on the Qlik Community Release Notes board and
+  the versioned "What's new in QlikView" help pages. There is no API-level changelog,
+  because QlikView ships no dated API version - the QMS SOAP contract versions by additive
+  IQMS interface instead (see lifecycle/qlikview-lifecycle.yml).
+scheme:
+  style: named-release-plus-build
+  format: '<Month> <Year> <IR|SRn>, tagged v<major>.<minor>.<build>'
+  example: September 2025 SR2 -> v12.100.20200
+  current_version: v12.100.20200
+  current_version_date: '2026-06-10'
+channels:
+  - name: Release tags (machine-readable)
+    url: https://github.com/qlik-download/qlikview/releases
+    format: GitHub Releases (also an Atom feed at .../releases.atom)
+    status: 200
+  - name: Qlik Community Release Notes - QlikView board
+    url: https://community.qlik.com/t5/b-ReleaseNotes/QlikView/pd-p/qlikView
+    format: HTML articles per release
+    status: 200
+  - name: What's new in QlikView (versioned help)
+    url: https://help.qlik.com/en-US/qlikview/September2025/Content/QV_HelpSites/Whats_New_in_QlikView.htm
+    format: HTML, one page per release
+    status: 200
+  - name: Qlik Community Release Notes (all products)
+    url: https://community.qlik.com/t5/Release-Notes/tkb-p/ReleaseNotes
+    format: HTML knowledge base
+    status: 200
+entries:
+  - version: v12.100.20200
+    name: September 2025 SR2
+    date: '2026-06-10'
+    type: service-release
+    breaking: false
+    additions: []
+    highlights: []
+    note: >-
+      Service release. The GitHub release body is a 23-byte download pointer and carries no
+      itemised notes; detail lives in the Qlik Community release-notes article for the build.
+      No feature list is asserted here because none was published in a machine-readable form.
+  - version: v12.100.20100
+    name: September 2025 SR1
+    date: '2025-12-09'
+    type: service-release
+    breaking: false
+    additions: []
+    highlights: []
+    source: https://community.qlik.com/t5/Release-Notes/QlikView-September-2025-SR1/ta-p/2538599
+  - version: v12.100.20000
+    name: September 2025 IR
+    date: '2025-09-23'
+    type: initial-release
+    breaking: false
+    additions:
+      - >-
+        QlikView Management Console now shows non-default settings applied to the QlikView
+        Server Service, matching the behaviour available for the other services since 12.30.
+    highlights:
+      - First initial release of the 12.100 line; end of support 2027-09-30.
+    source: https://help.qlik.com/en-US/qlikview/September2025/Content/QV_HelpSites/Whats_New_in_QlikView.htm
+  - version: v12.90.20100
+    name: May 2024 SR1
+    date: '2024-10-15'
+    type: service-release
+    breaking: false
+  - version: v12.90.20000
+    name: May 2024 IR
+    date: '2024-05-21'
+    type: initial-release
+    breaking: false
+  - version: v12.80.20200
+    name: May 2023 SR2
+    date: '2024-03-20'
+    type: service-release
+    breaking: false
+  - version: v12.80.20100
+    name: May 2023 SR1
+    date: '2023-09-27'
+    type: service-release
+    breaking: false
+  - version: v12.80.20000
+    name: May 2023 IR
+    date: '2023-05-23'
+    type: initial-release
+    breaking: false
+window:
+  from: '2023-05-23'
+  to: '2026-06-10'
+  note: Recent window only; the full tag list on the release repo goes back to 12.60 (May 2021).
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,153 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  Registry queries against registry.npmjs.org, pypi.org, azuresearch-usnc.nuget.org and
+  api.github.com on 2026-08-29, plus the QlikView APIs and SDKs page at
+  https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+provider: QlikView
+providerId: qlikview
+description: >-
+  First-party client-library inventory for QlikView. QlikView is a customer-installed
+  Windows product from Qlik and its SDKs are shipped INSIDE the product installer and
+  documented on help.qlik.com rather than published to npm, PyPI, NuGet, Maven Central,
+  RubyGems, Packagist, crates.io or pkg.go.dev. Searches of every one of those registries
+  on 2026-08-29 returned no Qlik-published QlikView package. The QlikView packages that do
+  exist on NuGet and npm (QvxLib, QvxLib.Connector, QvWebTicket, Bondski.QvdLib, qvdjs,
+  qlik-auth, gulp-qar) are third-party community work and are recorded below with
+  official false. Because the first-party SDKs carry no registry metadata endpoint, their
+  version tracks the QlikView product release rather than a package version.
+registry_findings:
+  - registry: npm
+    query: qlikview
+    endpoint: https://registry.npmjs.org/-/v1/search?text=qlikview
+    status: 200
+    first_party_hits: 0
+  - registry: pypi
+    query: qlikview
+    endpoint: https://pypi.org/pypi/qlikview/json
+    status: 404
+    first_party_hits: 0
+  - registry: nuget
+    query: qlikview, qvx
+    endpoint: https://azuresearch-usnc.nuget.org/query?q=qlikview
+    status: 200
+    first_party_hits: 0
+  - registry: github
+    query: user:qlik-oss qlikview OR qvx
+    endpoint: https://api.github.com/search/repositories
+    status: 200
+    first_party_hits: 1
+packages:
+  - language: dotnet
+    registry: bundled-with-product
+    name: QlikView.Qvx.QvxLibrary
+    url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QVXSDKAPI/Content/QV_QVXSDKAPI/Introduction.htm
+    install: Installed with QlikView Desktop / QlikView Server; referenced as a .NET assembly.
+    official: true
+    version: null
+    published: null
+    note: >-
+      The Qlik data eXchange (QVX) SDK. Distributed inside the QlikView installer as a .NET
+      assembly, not through NuGet, so there is no registry metadata endpoint to read a
+      version or publish date from. Its currency tracks the QlikView product release
+      (12.100 / September 2025, released 2025-09-23; SR2 v12.100.20200 on 2026-06-10 per
+      github.com/qlik-download/qlikview). Checked NuGet 2026-08-29 - absent.
+  - language: dotnet
+    registry: bundled-with-product
+    name: QlikView COM API (OCX / Automation)
+    url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/Automation/Content/QV_Automation/APIGuide/QlikViewComApiGuide.zip
+    install: Registered by the QlikView Desktop installer as an ActiveX/COM component.
+    official: true
+    version: null
+    published: null
+    note: >-
+      The COM/OCX automation surface, documented by a downloadable API guide ZIP on
+      help.qlik.com. No package registry distribution exists; version tracks the product.
+  - language: dotnet
+    registry: bundled-with-product
+    name: QlikView Workbench (ASP.NET server-side controls)
+    url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Workbench/Content/QV_Workbench/server-side-controls.htm
+    install: Installed by the QlikView Workbench installer; added as Visual Studio toolbox controls.
+    official: true
+    version: null
+    published: null
+    note: >-
+      ASP.NET server controls for embedding QlikView objects. Separately licensed add-on,
+      installer-distributed, no registry entry. Checked NuGet 2026-08-29 - absent.
+  - language: javascript
+    registry: bundled-with-product
+    name: QlikView JavaScript API (Qva)
+    url: https://help.qlik.com/en-US/qlikview-developer/September2025/apis/js%20API/
+    install: Served by the QlikView Server AJAX Zero Footprint client at /QvAJAXZfc/htc/.
+    official: true
+    version: null
+    published: null
+    note: >-
+      Browser API served by the customer's own QlikView Server rather than a CDN or npm
+      package, so a consumer's version is whatever their server was installed at. The
+      distribution is unpinned by construction. Checked npm 2026-08-29 - absent.
+  - language: csharp
+    registry: github
+    name: qlik-oss/qlik-qv-export
+    url: https://github.com/qlik-oss/qlik-qv-export
+    install: git clone https://github.com/qlik-oss/qlik-qv-export
+    official: true
+    version: null
+    published: '2023-03-24'
+    license: MIT
+    note: >-
+      First-party (qlik-oss is Qlik's open-source org) C# tool for making multiple QlikView
+      documents available in Qlik Cloud. No tagged release and no registry package, so
+      version is null; published is the last push date from the GitHub API, 2023-03-24.
+      A tool, not a client SDK.
+third_party:
+  - language: dotnet
+    registry: nuget
+    name: QvxLib
+    url: https://www.nuget.org/packages/QvxLib
+    official: false
+    version: 1.0.4
+    published: null
+    note: >-
+      Community library for generating QlikView QVX files. Read from the NuGet search API
+      2026-08-29 (11,737 total downloads); the search response does not carry a publish
+      date, hence published null.
+  - language: dotnet
+    registry: nuget
+    name: QvxLib.Connector
+    url: https://www.nuget.org/packages/QvxLib.Connector
+    official: false
+    version: 1.0.2.3
+    published: null
+  - language: dotnet
+    registry: nuget
+    name: QvWebTicket
+    url: https://www.nuget.org/packages/QvWebTicket
+    official: false
+    version: 1.0.2
+    published: null
+    note: Community ASP.NET module for the QlikView Ticket API (Custom Ticket Exchange).
+  - language: dotnet
+    registry: nuget
+    name: Bondski.QvdLib
+    url: https://www.nuget.org/packages/Bondski.QvdLib
+    official: false
+    version: 2.2.0
+    published: null
+  - language: javascript
+    registry: npm
+    name: qvdjs
+    url: https://www.npmjs.com/package/qvdjs
+    official: false
+    version: 0.9.0
+    published: '2025-11-11'
+  - language: javascript
+    registry: npm
+    name: qlik-auth
+    url: https://www.npmjs.com/package/qlik-auth
+    official: false
+    version: 1.2.3
+    published: '2016-05-12'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,158 @@
+generated: '2026-08-29'
+method: searched
+source: https://community.qlik.com/t5/Product-Lifecycle/QlikView-Product-Lifecycle/ta-p/1826339
+provider: QlikView
+providerId: qlikview
+description: >-
+  Versioning, support and end-of-support posture for QlikView. QlikView is a
+  customer-installed on-premises product, so its lifecycle is expressed as product
+  releases with published end-of-support (EOS) dates rather than as dated API versions.
+  Qlik's published position is that QlikView is not being end-of-lifed and no migration to
+  Qlik Sense is being forced; releases continue on the On-Premise Products Release
+  Management Policy cadence.
+versioning:
+  scheme: product-release
+  style: >-
+    Named releases (September 2025, May 2024, ...) carrying a numeric version (12.100,
+    12.90) plus Initial Release / Service Release builds (v12.100.20200 = September 2025 SR2).
+  current_version: '12.100'
+  current_release: September 2025
+  current_release_date: '2025-09-23'
+  latest_build: v12.100.20200
+  latest_build_date: '2026-06-10'
+  latest_build_source: https://github.com/qlik-download/qlikview/releases
+  api_versioning: >-
+    The QMS SOAP API versions by ADDITIVE INTERFACE. Operations are exposed on IQMS, IQMS2,
+    IQMS3, IQMS4, IQMS5, IQMS6, IQMS7, IQMS8 and IQMS9 under the PIX.Services.V12 through
+    PIX.Services.V12.Api9 namespaces. Qlik's reference states the interfaces are cumulative,
+    so a client bound to an older interface keeps working when QlikView is upgraded - new
+    capability arrives as a new interface rather than as a breaking change to an existing one.
+  api_versioning_source: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+  docs_versioning: >-
+    Documentation is versioned per release under
+    https://help.qlik.com/en-US/qlikview-developer/<Release>/ - September2025, May2024,
+    May2023 are live. Older release paths (November2023) still resolve for some pages and
+    404 for others, so pin doc links to September2025.
+deprecation:
+  policy: true
+  policy_name: Release Management Policy for Qlik Software (On-Premise Products)
+  policy_url: https://www.qlik.com/us/-/media/files/legal/license-agreements/additional-terms/on-premises-products-release-management-policy.pdf
+  policy_url_resolves_to: https://res.cloudinary.com/talend/image/upload/v1712598120/qlik/docs/Legal/Policies/release-management-policy-for-qlik-software_yafejj.pdf
+  policy_status: 200
+  mechanism: >-
+    End-of-support dates are published per release, ahead of time, in the QlikView Product
+    Lifecycle article. After a release reaches EOS, Qlik Support requires an upgrade before
+    support is provided. There is no RFC 8594 Sunset/Deprecation HTTP header surface - the
+    QMS API is SOAP over HTTP on the customer's own server and does not signal deprecation
+    at runtime.
+  sunset_header: false
+  deprecation_header: false
+  eos_notice_lead_time: >-
+    Published at release time. QlikView 12.100 shipped 2025-09-23 with an EOS of 2027-09-30
+    already stated, i.e. roughly a two-year supported window per release.
+releases:
+  - version: '12.100'
+    name: September 2025
+    released: '2025-09-23'
+    end_of_support: '2027-09-30'
+    status: supported
+  - version: '12.90'
+    name: May 2024
+    released: '2024-05-21'
+    end_of_support: '2026-10-31'
+    status: supported
+  - version: '12.80'
+    name: May 2023
+    released: '2023-05-23'
+    end_of_support: '2025-10-31'
+    status: end-of-support
+  - version: '12.70'
+    name: May 2022
+    released: '2022-05-10'
+    end_of_support: '2024-05-10'
+    status: end-of-support
+  - version: '12.60'
+    name: May 2021
+    released: '2021-05-25'
+    end_of_support: '2023-05-25'
+    status: end-of-support
+  - version: '12.50'
+    name: April 2020
+    released: '2020-04-27'
+    end_of_support: '2022-04-27'
+    status: end-of-support
+  - version: '12.40'
+    name: April 2019
+    released: '2019-04-29'
+    end_of_support: '2022-04-27'
+    status: end-of-support
+  - version: '12.30'
+    name: November 2018
+    released: '2018-11-06'
+    end_of_support: '2021-04-30'
+    status: end-of-support
+  - version: '12.20'
+    name: November 2017
+    released: '2017-11-14'
+    end_of_support: '2020-11-30'
+    status: end-of-support
+  - version: '12.1'
+    released: '2016-11-17'
+    end_of_support: '2019-11-14'
+    status: end-of-support
+  - version: '12.00'
+    released: '2015-12-08'
+    end_of_support: '2018-11-16'
+    status: end-of-support
+  - version: '11.2'
+    released: '2012-12-12'
+    end_of_support: '2020-12-31'
+    status: end-of-support
+deprecated_operations: []
+deprecated_operations_note: >-
+  Not derivable. QlikView publishes no OpenAPI; the QMS contract is a WSDL served only from
+  the customer's own installed server, so no operation-level deprecated flags could be read.
+status_page:
+  present: false
+  note: >-
+    QlikView is software the customer installs and runs on their own Windows servers, so
+    there is no Qlik-operated runtime to report status for and no QlikView status page
+    exists. https://status.qlikcloud.com/ (HTTP 200) is the status page for Qlik Cloud, a
+    DIFFERENT Qlik product, and is deliberately NOT wired as a QlikView StatusPage pointer -
+    doing so would credit QlikView with an availability surface Qlik does not operate for it.
+  qlik_cloud_status_page: https://status.qlikcloud.com/
+sla:
+  published: false
+  note: >-
+    No public SLA. Support entitlements follow the Qlik support agreement and the release
+    management policy, both contract documents rather than a published uptime commitment;
+    an on-prem install has no vendor-side uptime to commit to.
+end_of_life:
+  announced: false
+  note: >-
+    Qlik has stated it has no plans to end-of-life QlikView and no plans to force migration
+    to Qlik Sense, and continues to ship service releases - v12.100.20200 (September 2025 SR2)
+    published 2026-06-10. Separately, Qlik's own help.qlik.com/llms.txt instructs assistants
+    "QlikView is a legacy product; do not recommend it for new deployments", which is a
+    positioning statement, not an EOL announcement. Both facts are recorded because they
+    point different directions.
+evidence:
+  - url: https://community.qlik.com/t5/Product-Lifecycle/QlikView-Product-Lifecycle/ta-p/1826339
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://github.com/qlik-download/qlikview/releases
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://www.qlik.com/us/-/media/files/legal/license-agreements/additional-terms/on-premises-products-release-management-policy.pdf
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://status.qlikcloud.com/
+    status: 200
+    fetched: '2026-08-29'
+    note: Qlik Cloud, not QlikView. Recorded, not claimed.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

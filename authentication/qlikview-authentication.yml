@@ -1,0 +1,158 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+  and https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/Ticket-API.htm
+docs: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+provider: QlikView
+providerId: qlikview
+description: >-
+  Authentication profile for the QlikView API surface, read from Qlik's own developer help
+  rather than derived from a spec - QlikView publishes no OpenAPI, and its QMS contract is a
+  WSDL served only from the customer's own installed server. There is NO OAuth 2.0, NO
+  OpenID Connect and NO API-key surface anywhere in QlikView. Every documented mechanism is
+  either Windows/NTFS identity on the customer's own network or a server-issued short-lived
+  ticket, which is what an on-premises product of this generation looks like.
+derived_from_spec: false
+spec_note: >-
+  derive-authentication.py was not run against a spec because openapi/ is empty; every entry
+  below is quoted from a live 200 documentation page, so method is searched, not derived.
+schemes:
+  - id: qms-service-key
+    type: apiKey
+    in: header
+    name: X-Service-Key
+    applies_to:
+      - QlikView Management API (QMS API)
+      - QlikView Server API
+      - QlikView Distribution Service API (IQDS)
+    description: >-
+      Every QMS API operation must carry a service key in the X-Service-Key HTTP/HTTPS
+      header. The single exception is GetTimeLimitedServiceKey, which is the operation used
+      to OBTAIN a key and therefore cannot require one. Qlik states the header exists to
+      prevent cross-site request forgery.
+    lifetime: >-
+      Time-limited. The key is issued by GetTimeLimitedServiceKey and expires; clients must
+      re-request rather than persist one.
+    obtain_operation: GetTimeLimitedServiceKey
+    transport: SOAP over HTTP or HTTPS
+    source: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+  - id: windows-group-authorization
+    type: platform
+    applies_to:
+      - QlikView Management API (QMS API)
+      - QlikView Distribution Service API (IQDS)
+    description: >-
+      Authorization for the QMS API is Windows local-group membership on the QlikView
+      server, not scopes. Most operations require membership of the local group "QlikView
+      Management API", which gates overall API access; individual operations additionally
+      require "QlikView Administrator" or "QlikView EDX".
+    groups:
+      - name: QlikView Management API
+        grants: Overall QMS API access; required by most operations.
+      - name: QlikView Administrator
+        grants: Administrative operations.
+      - name: QlikView EDX
+        grants: External Document Exchange (EDX) task-trigger operations.
+    source: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+  - id: custom-ticket-exchange
+    type: ticket
+    applies_to:
+      - QlikView Authentication API (Ticket API)
+      - QlikView AccessPoint API
+      - QlikView Workbench API
+    description: >-
+      Custom Ticket Exchange (CTE). A trusted third-party system POSTs a ticket request on
+      behalf of an already-authenticated user; QlikView Server returns a ticket - "a string
+      of random bytes" - which the browser then exchanges for a session. This is QlikView's
+      single sign-on path for embedding and for portals that do the authentication themselves.
+    endpoints:
+      - path: /QvAJAXZfc/GetWebTicket.aspx
+        method: POST
+        purpose: Request a ticket for a named user.
+        request_content_type: application/xml
+        request_body_shape: '<Global method="GetWebTicket"><UserId>[User Name]</UserId>[Groups]</Global>'
+        response_body_shape: '<Global><_retval_>[Ticket]</_retval_></Global>'
+      - path: /QvAJAXZfc/Authenticate.aspx
+        method: GET
+        purpose: Redirect target that exchanges the ticket for a QlikView session.
+      - path: /Accesspoint.aspx
+        method: POST
+        purpose: Terminate the session (logout).
+    fields:
+      - name: UserId
+        description: The user name the ticket is being minted for.
+        required: true
+      - name: GroupList
+        description: Optional list of group names, each wrapped in a <string> element.
+        required: false
+      - name: GroupsIsNames
+        description: >-
+          true when GroupList carries Document Metadata Service (DMS) group NAMES; false
+          when it carries Windows Security Identifiers (SIDs) for NTFS authorization.
+        required: false
+      - name: Ticket
+        description: The returned random-byte ticket, exchanged at Authenticate.aspx.
+    authorization_modes:
+      - DMS - Document Metadata Service authorization by group name
+      - NTFS - Windows authorization by Security Identifier (SID)
+    source: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/Ticket-API.htm
+  - id: windows-integrated
+    type: platform
+    applies_to:
+      - QlikView AccessPoint API
+      - QlikView Server API
+    description: >-
+      The default AccessPoint path is Windows integrated authentication (NTLM/Kerberos)
+      against the domain the QlikView Server is joined to, with NTFS or DMS authorization on
+      the documents themselves. No token is exchanged over the API; identity comes from the
+      operating system.
+    source: https://community.qlik.com/t5/Official-Support-Articles/Customized-Authentication-in-QlikView/ta-p/1710763
+  - id: local-com
+    type: none
+    applies_to:
+      - QlikView Plugin API
+      - QlikView OCX API (Automation API)
+      - QlikView QVX SDK API
+    description: >-
+      In-process COM/.NET surfaces on the user's own desktop or server. There is no network
+      authentication because there is no network call - the caller already runs as the
+      Windows user.
+not_present:
+  oauth2: >-
+    QlikView documents no OAuth 2.0 flow of any kind. OAuth on Qlik hosts belongs to Qlik
+    Cloud (qlik.dev), a DIFFERENT product, and is deliberately not recorded here.
+  openid_connect: false
+  jwt: >-
+    Not in QlikView. JWT-based identity providers are a Qlik Sense / Qlik Cloud capability.
+  mutual_tls: >-
+    Not documented for the API surface. QlikView services use certificate trust between
+    their own internal services, which is not a client authentication mechanism.
+  api_keys: >-
+    No developer-portal API key exists; the X-Service-Key value is a server-issued,
+    time-limited session key, not a provisioned credential.
+scopes:
+  model: none
+  note: >-
+    No OAuth scopes exist, so scopes/qlikview-scopes.yml is deliberately NOT written.
+    Authorization is Windows local-group membership plus DMS/NTFS document permissions.
+transport_security:
+  https_supported: true
+  https_required: false
+  note: >-
+    The QMS API accepts SOAP over HTTP or HTTPS; the default installed endpoint is plain
+    HTTP on port 4799. TLS is the customer's deployment choice, not a vendor default, which
+    is a real posture finding for anyone assessing this surface.
+evidence:
+  - url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/Ticket-API.htm
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://community.qlik.com/t5/Official-Support-Articles/Customized-Authentication-in-QlikView/ta-p/1710763
+    status: 200
+    fetched: '2026-08-29'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

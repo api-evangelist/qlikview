@@ -1,0 +1,90 @@
+generated: '2026-08-29'
+method: searched
+source: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+provider: QlikView
+providerId: qlikview
+description: >-
+  Client-side and embeddable component surface for QlikView - the parts a developer drops
+  into someone else's page or application rather than calls over the wire. QlikView's
+  embedding story is unusual for this catalogue: the components are served by the customer's
+  own QlikView Server (the AJAX Zero Footprint client at /QvAJAXZfc/) or installed into
+  Visual Studio, not loaded from a vendor CDN, so there is no versioned loader URL a
+  consumer can pin.
+families:
+  - name: QlikView Workbench (ASP.NET server controls)
+    kind: server-side-ui-controls
+    platform: ASP.NET / .NET
+    description: >-
+      Server-side controls that render QlikView objects, charts and selection surfaces inside
+      an ASP.NET web application, so QlikView analytics can be embedded in an existing portal
+      rather than accessed through AccessPoint.
+    docs: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Workbench/Content/QV_Workbench/server-side-controls.htm
+    loader: Installed by the QlikView Workbench installer; added to the Visual Studio toolbox.
+    licensing: Separately licensed QlikView add-on.
+    components:
+      - name: Server-side controls
+        description: ASP.NET controls that host QlikView document objects in a web page.
+      - name: Client-side (AJAX) integration
+        description: >-
+          Workbench pairs its server controls with the QlikView AJAX client so the embedded
+          objects stay interactive in the browser.
+  - name: QlikView AJAX Zero Footprint client (Qva)
+    kind: browser-javascript
+    platform: Browser
+    description: >-
+      The browser runtime QlikView Server serves for the AccessPoint. Its Qva JavaScript
+      object is the public surface for building websites that contain QlikView content and
+      for driving selections, documents and objects from page script.
+    docs: https://help.qlik.com/en-US/qlikview-developer/September2025/apis/js%20API/
+    loader: >-
+      Served from the customer's own QlikView Server under /QvAJAXZfc/. Not published to npm
+      or a CDN, so the version a consumer gets is whatever their server was installed at -
+      the distribution is unpinned by construction.
+    components:
+      - name: Qva.GetDocumentList
+        description: Enumerate the QlikView documents the current user may open.
+        docs: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/AJAX/Content/QV_AJAX/qva-getdocumentlist.htm
+      - name: Qva document/object API
+        description: Open a document and render or manipulate its objects in the page.
+  - name: QlikView Extension objects
+    kind: custom-visualization
+    platform: Browser (AJAX client)
+    description: >-
+      Custom visualization objects authored in JavaScript/HTML and installed into QlikView so
+      they appear alongside the built-in chart types. This is the extension point the
+      JavaScript API exists to serve.
+    docs: https://help.qlik.com/en-US/qlikview-developer/September2025/apis/js%20API/
+    packaging: >-
+      Packaged as a QAR (QlikView Archive) file for installation. Community tooling exists
+      for building them (npm gulp-qar); Qlik publishes no first-party build tool.
+  - name: QlikView Plugin objects (COM)
+    kind: desktop-extension
+    platform: Windows / COM
+    description: >-
+      COM-based custom objects and extensions rendered by the QlikView Desktop and the
+      QlikView browser plugin, as opposed to the browser-native extension objects above.
+    docs: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/PluginAPI/Content/QV_PluginAPI/plugin-api-introduction.htm
+not_present:
+  web_components: >-
+    No standards-based custom elements. Qlik's web-component embedding library
+    (qlik-embed) belongs to Qlik Cloud on qlik.dev - a different product - and is not
+    recorded here.
+  hosted_prebuilt_ui: >-
+    No vendor-hosted prebuilt UI. Everything is served by the customer's own installation.
+  cdn_distribution: false
+evidence:
+  - url: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://help.qlik.com/en-US/qlikview-developer/September2025/apis/js%20API/
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Workbench/Content/QV_Workbench/server-side-controls.htm
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/PluginAPI/Content/QV_PluginAPI/plugin-api-introduction.htm
+    status: 200
+    fetched: '2026-08-29'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

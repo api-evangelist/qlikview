@@ -1,0 +1,114 @@
+generated: '2026-08-29'
+method: probed
+source: live GET probes of /.well-known/* on every Qlik host reachable from apis.yml
+note: >-
+  QlikView is a customer-installed, on-premises product. Its apis[].baseURL hosts
+  (qlikview-server:4799, qlikview-server/QvAJAXZfc) are templated placeholders for the
+  customer's own Windows server and are not reachable from the public internet, so the
+  probe set is Qlik's own public hosts: the marketing site, the documentation host, the
+  developer portal and the community. Every /.well-known/ path returned 404. www.qlik.com
+  and qlik.com answer 404 with a full ~888KB Next.js HTML shell, and help.qlik.com,
+  qlik.dev and community.qlik.com likewise return HTML error documents, so nothing was
+  saved. NO WellKnown or SecurityTxt pointer is emitted - this file records an absence.
+hit_count: 0
+hosts:
+  - host: https://www.qlik.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://qlik.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://help.qlik.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://qlik.dev
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://community.qlik.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+soft_404_control:
+  note: >-
+    Control probe. www.qlik.com returns HTTP 404 with a 888,044-byte HTML body for every
+    /.well-known/* path, i.e. an honest 404 status carrying the site shell; help.qlik.com
+    returns 404 with a 1,893-byte HTML error page. No host answered 200 for any
+    /.well-known/ path, so there is no catch-all 200 to guard against here.
+  probed: '2026-08-29'
+adjacent_findings:
+  - path: /llms.txt
+    host: https://help.qlik.com
+    status: 200
+    content_type: text/plain
+    note: >-
+      Not a /.well-known/ document, but a real machine-readable discovery file. Saved
+      verbatim to llms/qlikview-llms.txt and wired as type LLMsTxt.
+  - path: /llms.txt
+    host: https://www.qlik.com
+    status: 200
+    content_type: text/plain
+    note: Marketing-site llms.txt; product/marketing links only, no QlikView developer content.

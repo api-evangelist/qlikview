@@ -1,0 +1,157 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+  and https://www.qlik.com/us/trust
+provider: QlikView
+providerId: qlikview
+description: >-
+  Standards and compliance posture for QlikView. Two different things are recorded here and
+  they point opposite ways: the CONTRACT conforms to almost nothing modern (SOAP/WSDL, no
+  OAuth, no OpenAPI, no problem+json), while the COMPANY publishes a deep, named
+  certification program on its public trust page. Both are true and a buyer needs both.
+standards:
+  - id: soap-1.1
+    conforms: true
+    evidence: >-
+      "All communication uses SOAP over HTTP or HTTPS" - QMS API reference,
+      help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+  - id: wsdl-1.1
+    conforms: true
+    evidence: >-
+      "provides a description of its operations and data objects in WSDL available at
+      http://localhost:4799/QMS/Service by default". The WSDL is served from the customer's
+      own installed QlikView Server and is therefore not publicly retrievable; no WSDL file
+      is saved in this repo because none could be fetched, and authoring one is forbidden.
+  - id: openapi
+    conforms: false
+    evidence: >-
+      No OpenAPI/Swagger document is published anywhere on qlik.com, help.qlik.com, qlik.dev
+      or the qlik-oss GitHub org for QlikView. The apis.yml entry that previously claimed
+      type OpenAPI at https://help.qlik.com/en-US/qlikview-developer/APIs/ was a docs
+      directory that returns HTTP 404; it has been removed.
+  - id: graphql
+    conforms: false
+    evidence: No GraphQL endpoint documented for QlikView.
+  - id: asyncapi
+    conforms: false
+    evidence: >-
+      No AsyncAPI document and no HTTP webhook surface. The nearest event mechanism is EDX
+      (External Document Exchange), an inbound trigger a caller pushes to the Distribution
+      Service - not an outbound event a subscriber receives - so no Webhooks pointer is emitted.
+  - id: oauth2
+    conforms: false
+    evidence: No OAuth 2.0 flow documented; auth is X-Service-Key plus Windows group membership.
+  - id: oidc
+    conforms: false
+    evidence: No OpenID Connect surface; /.well-known/openid-configuration returns 404 on every Qlik host.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors are SOAP faults; no application/problem+json.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returns 404 on all five probed Qlik hosts (2026-08-29).
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: >-
+      End-of-support is published as dated releases in the Product Lifecycle article, not as
+      a Sunset or Deprecation HTTP header.
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency key or retry-safety semantics documented. See conventions/.
+  - id: pagination
+    conforms: false
+    evidence: No page/cursor/limit parameters documented on the QMS collection operations.
+  - id: json-api
+    conforms: false
+  - id: odata
+    conforms: false
+  - id: scim
+    conforms: false
+  - id: fhir
+    conforms: false
+  - id: fapi
+    conforms: false
+  - id: psd2
+    conforms: false
+domain_standard:
+  market: Business intelligence and analytics
+  declared: false
+  note: >-
+    REWARD-ONLY check, honestly left empty. Business intelligence has candidate interchange
+    standards (XMLA, MDX, ODBO, the Open Data Protocol) but the QlikView contract declares
+    none of them - the QMS API is a proprietary PIX.Services SOAP namespace and QVX is
+    Qlik's own file/stream format. No domain-standard signature was found in the contract,
+    so none is claimed. QVX is documented as a Qlik-proprietary exchange format, not an
+    industry standard.
+  candidates_checked:
+    - id: xmla
+      found: false
+    - id: odata
+      found: false
+    - id: mdx
+      found: false
+compliance:
+  published: true
+  program_url: https://www.qlik.com/us/trust
+  scope_note: >-
+    These are Qlik company-wide and Qlik Cloud certifications published on the Qlik Trust
+    page. QlikView is customer-installed software, so certifications that certify a hosted
+    environment (FedRAMP, GovRAMP, TX-RAMP, DISA IL2/IL4, CJIS) apply to Qlik Cloud
+    Government and NOT to a QlikView deployment on a customer's own servers. Recorded with
+    that boundary stated rather than silently attributed to QlikView.
+  certifications:
+    - name: ISO/IEC 27001:2022
+      applies_to: Qlik products
+    - name: ISO/IEC 27017:2015
+      applies_to: Qlik products
+    - name: ISO/IEC 27018:2019
+      applies_to: Qlik products
+    - name: ISO/IEC 42001:2023
+      applies_to: Qlik AI management system
+    - name: SOC 1
+      applies_to: Qlik products
+    - name: SOC 2 + HITRUST CSF
+      applies_to: Qlik products
+    - name: SOC 3
+      applies_to: Qlik products
+    - name: HIPAA
+      applies_to: Qlik products
+    - name: TISAX
+      applies_to: Qlik products
+    - name: IRAP
+      applies_to: Qlik products
+    - name: Cyber Essentials / Cyber Essentials Plus
+      applies_to: Qlik products
+    - name: UK G-Cloud v14
+      applies_to: Qlik products
+    - name: CASA Tier 3
+      applies_to: Qlik products
+    - name: C5 (German BSI)
+      applies_to: Qlik products
+    - name: FedRAMP
+      applies_to: Qlik Cloud Government only - not QlikView
+    - name: GovRAMP
+      applies_to: Qlik Cloud Government only - not QlikView
+    - name: TX-RAMP Level 2
+      applies_to: Qlik Cloud Government only - not QlikView
+    - name: ITAR
+      applies_to: Qlik Cloud Government only - not QlikView
+    - name: DISA Impact Level 2 and 4
+      applies_to: Qlik Cloud Government only - not QlikView
+    - name: CJIS
+      applies_to: Qlik Cloud Government only - not QlikView
+evidence:
+  - url: https://www.qlik.com/us/trust
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm
+    status: 200
+    fetched: '2026-08-29'
+  - url: https://help.qlik.com/en-US/qlikview-developer/APIs/
+    status: 404
+    fetched: '2026-08-29'
+    note: The previously-claimed OpenAPI pointer. Dead; removed from apis.yml.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

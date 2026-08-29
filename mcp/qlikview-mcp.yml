@@ -1,0 +1,48 @@
+generated: '2026-08-29'
+method: searched
+status: none
+provider: QlikView
+providerId: qlikview
+source: >-
+  Searched Qlik's developer surfaces (qlik.dev, help.qlik.com, community.qlik.com,
+  github.com/qlik-oss) and the npm registry for a QlikView MCP server on 2026-08-29.
+description: >-
+  No Model Context Protocol server exists for QlikView, and none was derived. Qlik DOES ship
+  an MCP server - it is listed as a feature of Qlik Cloud Analytics on
+  https://www.qlik.com/us/pricing from the Starter tier up - but that server belongs to Qlik
+  Cloud, a DIFFERENT Qlik product with a different contract surface. Recording it here would
+  credit QlikView with an agent surface it does not have, so it is noted and not claimed.
+  A candidate tool list could not be derived either: QlikView publishes no OpenAPI, and its
+  QMS operation names live in a WSDL served only from the customer's own installed server,
+  so there is no operation inventory to project into tools without inventing one.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+server: null
+tools: []
+sibling_product_note:
+  product: Qlik Cloud Analytics
+  evidence_url: https://www.qlik.com/us/pricing
+  evidence_status: 200
+  statement: >-
+    "MCP Server" appears in the Qlik Cloud Analytics Starter tier feature list. Qlik Cloud is
+    a separate SaaS product from QlikView (customer-installed Windows software); the two do
+    not share an API contract. NOT wired as a QlikView MCPServer pointer.
+searched:
+  - target: https://qlik.dev
+    result: Qlik Cloud developer portal; no QlikView MCP server.
+  - target: github.com/qlik-oss
+    result: 139 public repos; no QlikView MCP server.
+  - target: npm registry search "qlikview"
+    result: Community QVD/extension tooling only; no MCP package.
+pointer_emitted: false
+pointer_note: >-
+  No MCPServer pointer is written to apis.yml. This file records an absence, and emitting the
+  pointer would score a surface QlikView does not serve.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
