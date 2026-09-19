@@ -138,6 +138,11 @@ apis:
     baseURL: http://qlikview-server/QvAJAXZfc/
     tags:
       - .NET
+      - Embeddings
+      - Web Integration
+      - Workbench
+    tags_raw:
+      - .NET
       - Embedding
       - Web Integration
       - Workbench
@@ -246,6 +251,12 @@ apis:
     humanURL: https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm
     baseURL: http://qlikview-server/QvAJAXZfc/
     tags:
+      - Authentication
+      - Custom Ticket Exchange
+      - Security
+      - SSO
+      - Tickets
+    tags_raw:
       - Authentication
       - Custom Ticket Exchange
       - Security
