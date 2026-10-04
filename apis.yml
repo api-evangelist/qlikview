@@ -255,7 +255,7 @@ apis:
       - Custom Ticket Exchange
       - Security
       - SSO
-      - Tickets
+      - Ticketing
     tags_raw:
       - Authentication
       - Custom Ticket Exchange
