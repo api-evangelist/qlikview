@@ -295,6 +295,12 @@ apis:
         email: support@qlik.com
         url: https://community.qlik.com/
 common:
+  - type: Plans
+    url: plans/qlikview-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/qlikview-rate-limits.yml
+  - type: FinOps
+    url: finops/qlikview-finops.yml
   - type: TrustCenter
     url: security/qlikview-trust-center.yml
   - type: DomainSecurity
