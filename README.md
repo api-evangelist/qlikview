@@ -1,4 +1,4 @@
-# QlikView (qlikview)
+# QlikView
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,204 +64,125 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-QlikView is a business intelligence and data visualization platform that enables users to create guided analytics applications and dashboards for data discovery.
+QlikView is Qlik's guided-analytics platform for business intelligence and data visualization, installed and run on the customer's own Windows servers rather than consumed as a hosted service. Its patented associative in-memory engine lets users explore relationships across data sets, and its developer surface is a set of on-premises APIs and SDKs: the SOAP-based QlikView Management Service (QMS) API for administration, task and document distribution, the Ticket API for custom single sign-on, the AJAX/Qva JavaScript API and Workbench ASP.NET controls for embedding, and COM/OCX plus the QVX SDK for automation and custom data connectors. Still shipping - 12.100 (September 2025) is supported to 2027-09-30.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/qlikview/refs/heads/main/apis.yml)
+**Areas:** Analytics · Business Intelligence · Dashboards · Data Discovery · Data Visualization · Embedded Analytics · On-Premises · SOAP · Guided Analytics · Reporting
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## QlikView on APIs.io
 
-## Tags:
+Everything profiled for QlikView is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/qlikview/](https://apis.io/providers/qlikview/)** — or go straight to one of the APIs or properties below.
 
- - Analytics, Business Intelligence, Dashboards, Data Discovery, Data Visualization
+### APIs (10)
 
-## Timestamps
+- [QlikView Server API](https://apis.io/apis/qlikview/qlikview-server-api/) — Server-side API for managing QlikView Server operations, documents, and sessions.
+- [QlikView Management API (QMS API)](https://apis.io/apis/qlikview/qlikview-management-api-qms-api/) — SOAP-based API for QlikView management and administration tasks.
+- [QlikView AccessPoint API](https://apis.io/apis/qlikview/qlikview-accesspoint-api/) — Web-based API for QlikView AccessPoint portal functionality.
+- [QlikView Workbench API](https://apis.io/apis/qlikview/qlikview-workbench-api/) — API for integrating QlikView objects into web applications and portals.
+- [QlikView Plugin API](https://apis.io/apis/qlikview/qlikview-plugin-api/) — COM-based API for creating custom objects and extensions in QlikView.
+- [QlikView OCX API (Automation API)](https://apis.io/apis/qlikview/qlikview-ocx-api-automation-api/) — ActiveX/COM API for automating QlikView Desktop operations.
+- [QlikView QVX SDK API](https://apis.io/apis/qlikview/qlikview-qvx-sdk-api/) — The Qlik data eXchange (QVX) SDK enables developers to build custom connectors for integrating external data sources into QlikView, using a high-performance…
+- [QlikView JavaScript API](https://apis.io/apis/qlikview/qlikview-javascript-api/) — JavaScript API library for building websites containing QlikView content and for developing custom extension objects that extend QlikView visualization…
+- [QlikView Authentication API (Ticket API)](https://apis.io/apis/qlikview/qlikview-authentication-api-ticket-api/) — Authentication API providing Custom Ticket Exchange (CTE) for secure single sign-on access to QlikView Server, allowing third-party systems to request…
+- [QlikView Distribution Service API (IQDS)](https://apis.io/apis/qlikview/qlikview-distribution-service-api-iqds/) — API interface for the QlikView Distribution Service, providing programmatic access to document distribution, task management, and scheduled reload…
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-04-18
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### QlikView Server API
-Server-side API for managing QlikView Server operations, documents, and sessions.
+#### Security (4)
 
-**Human URL:** [https://help.qlik.com/en-US/qlikview/](https://help.qlik.com/en-US/qlikview/)
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags:
+- [Qlikview Authentication](https://apis.io/security/qlikview/qlikview-authentication/)
+- [Qlikview Domain Security](https://apis.io/security/qlikview/qlikview-domain-security/)
+- [Qlikview Trust Center](https://apis.io/security/qlikview/qlikview-trust-center/)
+- [Qlikview Vulnerability Disclosure](https://apis.io/security/qlikview/qlikview-vulnerability-disclosure/)
 
- - Administration, Documents, Server Management, Sessions
+#### Plans and pricing (1)
 
-#### Properties
+Published plans, tiers and prices.
 
-- [Documentation](https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Server/Content/QV_Server/sv-reference-QMS-API.htm)
+- [Qlikview Plans Pricing](https://apis.io/plans/qlikview/qlikview-plans-pricing/)
 
-### QlikView Management API (QMS API)
-SOAP-based API for QlikView management and administration tasks.
+#### Rate limits (1)
 
-**Human URL:** [https://help.qlik.com/en-US/qlikview/](https://help.qlik.com/en-US/qlikview/)
+Published request limits.
 
-#### Tags:
+- [Qlikview Rate Limits](https://apis.io/rate-limits/qlikview/qlikview-rate-limits/)
 
- - Administration, Configuration, Management, SOAP
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Server/Content/QV_Server/sv-qms-api-interface.htm)
-- [SDK](https://help.qlik.com/en-US/qlikview-developer/November2023/Content/QV_QlikViewSDK/QV_SDK_Introduction.htm)
-- [APIReference](https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm)
+- [Qlikview Finops](https://apis.io/finops/qlikview/qlikview-finops/)
 
-### QlikView AccessPoint API
-Web-based API for QlikView AccessPoint portal functionality.
+## Where to find this API
 
-**Human URL:** [https://help.qlik.com/en-US/qlikview/](https://help.qlik.com/en-US/qlikview/)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags:
-
- - AJAX, Frontend, User Access, Web Portal
-
-#### Properties
-
-- [Documentation](https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/AJAX/Content/QV_AJAX/ajax-api-introduction.htm)
-
-### QlikView Workbench API
-API for integrating QlikView objects into web applications and portals.
-
-**Human URL:** [https://help.qlik.com/en-US/qlikview/](https://help.qlik.com/en-US/qlikview/)
-
-#### Tags:
-
- - .NET, Embedding, Web Integration, Workbench
-
-#### Properties
-
-- [Documentation](https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/Workbench/Content/QV_Workbench/workbench-introduction.htm)
-
-### QlikView Plugin API
-COM-based API for creating custom objects and extensions in QlikView.
-
-**Human URL:** [https://help.qlik.com/en-US/qlikview/](https://help.qlik.com/en-US/qlikview/)
-
-#### Tags:
-
- - COM, Custom Objects, Extensions, Plugins
-
-#### Properties
-
-- [Documentation](https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/PluginAPI/Content/QV_PluginAPI/plugin-api-introduction.htm)
-- [SDK](https://community.qlik.com/t5/Developers/ct-p/qlik-developers)
-
-### QlikView OCX API (Automation API)
-ActiveX/COM API for automating QlikView Desktop operations.
-
-**Human URL:** [https://help.qlik.com/en-US/qlikview/](https://help.qlik.com/en-US/qlikview/)
-
-#### Tags:
-
- - ActiveX, Automation, COM, Desktop, Scripting
-
-#### Properties
-
-- [Documentation](https://help.qlik.com/en-US/qlikview-developer/November2023/Subsystems/OCX/Content/QV_OCX/ocx-introduction.htm)
-
-### QlikView QVX SDK API
-The Qlik data eXchange (QVX) SDK enables developers to build custom connectors for integrating external data sources into QlikView, using a high-performance file and stream format for data input.
-
-**Human URL:** [https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm](https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm)
-
-#### Tags:
-
- - Custom Connectors, Data Integration, Data Sources, QVX, SDK
-
-#### Properties
-
-- [Documentation](https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QVXSDKAPI/Content/QV_QVXSDKAPI/Getting-started.htm)
-- [APIReference](https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QVXSDKAPI/Content/QV_QVXSDKAPI/QlikView%20QVX%20File%20Format/command-pipe.htm)
-
-### QlikView JavaScript API
-JavaScript API library for building websites containing QlikView content and for developing custom extension objects that extend QlikView visualization capabilities.
-
-**Human URL:** [https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm](https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm)
-
-#### Tags:
-
- - AJAX, Extensions, JavaScript, Visualization, Web Development
-
-#### Properties
-
-- [Documentation](https://help.qlik.com/en-US/qlikview-developer/September2025/apis/js%20API/)
-
-### QlikView Authentication API (Ticket API)
-Authentication API providing Custom Ticket Exchange (CTE) for secure single sign-on access to QlikView Server, allowing third-party systems to request authentication tokens on behalf of users.
-
-**Human URL:** [https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm](https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm)
-
-#### Tags:
-
- - Authentication, Custom Ticket Exchange, Security, Single Sign-On, Tickets
-
-#### Properties
-
-- [Documentation](https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm)
-
-### QlikView Distribution Service API (IQDS)
-API interface for the QlikView Distribution Service, providing programmatic access to document distribution, task management, and scheduled reload operations including External Document Exchange (EDX) triggers.
-
-**Human URL:** [https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/PIX.Services.IQDS.htm](https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/PIX.Services.IQDS.htm)
-
-#### Tags:
-
- - Distribution, Document Reload, EDX, Scheduling, Task Management
-
-#### Properties
-
-- [Documentation](https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/PIX.Services.IQDS.htm)
-- [APIReference](https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm)
-
-## Common Properties
-
-- [Portal](https://help.qlik.com/en-US/qlikview-developer/)
-- [APIReference](https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm)
-- [Support](https://community.qlik.com/)
-- [Training](https://www.qlik.com/us/services/training)
+- [Website](https://www.qlik.com/us/products/qlikview)
+- [Documentation](https://help.qlik.com/en-US/qlikview/September2025/Content/QV_HelpSites/Home.htm)
+- [Getting started](https://help.qlik.com/en-US/qlikview-developer/September2025/Content/QV_HelpSites/APIsAndSDKs.htm)
+- [API reference](https://help.qlik.com/en-US/qlikview-developer/September2025/Subsystems/QMSAPIref/Content/Home.htm)
 - [Pricing](https://www.qlik.com/us/pricing)
-- [ReleaseNotes](https://community.qlik.com/t5/Release-Notes/tkb-p/ReleaseNotes)
-- [GitHubOrganization](https://github.com/qlik-oss)
-- [DeveloperPortal](https://qlik.dev/)
+- [Support](https://community.qlik.com/)
+- [Blog](https://www.qlik.com/us/blog)
+- [Compliance](https://www.qlik.com/us/trust)
+- [Terms of service](https://www.qlik.com/us/legal/terms-of-use)
+- [Privacy policy](https://www.qlik.com/us/legal/privacy-and-cookie-notice)
+- [GitHub](https://github.com/qlik-oss)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Associative Data Model | Explore data relationships dynamically with QlikView's patented associative engine. |
-| In-Memory Processing | Fast analytics with in-memory data compression and calculation. |
-| Guided Analytics | Build guided analytics applications with interactive dashboards and drill-down capabilities. |
-| Data Visualization | Rich set of chart types and visualization objects for data exploration and presentation. |
-| Custom Extensions | Extend QlikView with custom objects, connectors, and plugins using the Plugin and QVX APIs. |
-| AJAX Client | Web-based access to QlikView documents through the AJAX Zero Footprint Client. |
-| Document Distribution | Schedule and distribute QlikView documents and reports via the Distribution Service. |
-| Custom Ticket Authentication | Integrate single sign-on with custom authentication systems using the Ticket API. |
+**Kin Score 40.2** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 64.3 |
+| Access clarity | 47.4 |
 
-| Name | Description |
-|------|-------------|
-| Business Intelligence Dashboards | Build interactive BI dashboards for sales, finance, and operations analytics. |
-| Embedded Analytics | Embed QlikView analytics objects into existing web applications and portals. |
-| Automated Reporting | Schedule and distribute data-driven reports to stakeholders across the organization. |
-| Data Discovery | Enable self-service data discovery and exploration for business users. |
-| Custom Data Connectors | Build custom connectors to integrate QlikView with proprietary data sources. |
+**Agent readiness 5.0** — human-only
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
 
-| Name | Description |
-|------|-------------|
-| Qlik Sense | Migrate and extend QlikView applications to the modern Qlik Sense platform. |
-| SQL Databases | Connect to SQL Server, Oracle, MySQL, PostgreSQL and other relational databases. |
-| SAP | Extract and visualize SAP data with native SAP connectors. |
-| Salesforce | Integrate with Salesforce CRM data for sales analytics and reporting. |
-| Active Directory | Authenticate users and manage access through Active Directory integration. |
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
 
-## Maintainers
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/qlikview/](https://apis.io/providers/qlikview/).
 
-**FN:** Kin Lane
+## How this profile is made
 
-**Email:** kin@apievangelist.com
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for QlikView: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/qlikview/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
